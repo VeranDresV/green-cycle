@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puntos de Reciclaje en Piura</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Agregar el estilo para el mapa -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #89e7bd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        #map {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            background: url('../images/map-placeholder.jpg') no-repeat center center;
+            background-size: cover;
+            display: block;
+        }
+        footer {
+            background-color: #7fe7b8;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .recycling-link {
+            display: block;
+            margin: 10px 0;
+            padding: 12px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .recycling-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Puntos de Reciclaje en Piura</h1>
+        <p>Encuentra los puntos de reciclaje más cercanos en Piura y contribuye al cuidado del medio ambiente.</p>
+    </header>
+
+    <main>
+        <!-- Sección con la imagen del mapa -->
+        <div id="map">
+            <!-- Esta sección muestra una imagen de un mapa -->
+        </div>
+        <button onclick="window.location.href='https://www.google.com/maps/d/u/0/viewer?mid=1dd8u9Pm43eH6TAl7NKnXwFuVnE0&ll=-5.194495314380846%2C-80.63204918175556&z=13'">
+            Ver más puntos de reciclaje en Piura
+        </button>
+
+        <!-- Lista de puntos de reciclaje con enlaces -->
+        <section id="recycling-links">
+            <h2>Puntos de Reciclaje en Piura</h2>
+            <a href="https://www.google.com/maps?q=-5.194495314380846,-80.63204918175556" class="recycling-link" target="_blank">Punto de Reciclaje 1 - Av. Loreto, Piura</a>
+            <a href="https://www.google.com/maps?q=-5.2000,-80.6400" class="recycling-link" target="_blank">Punto de Reciclaje 2 - Av. Piura, Piura</a>
+            <a href="https://www.google.com/maps?q=-5.1850,-80.6250" class="recycling-link" target="_blank">Punto de Reciclaje 3 - Calle San Martin, Piura</a>
+            <!-- Agregar más enlaces según los puntos reales de reciclaje -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 GreenCycle.</p>
+    </footer>
+
+    <!-- Agregar el script de Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>

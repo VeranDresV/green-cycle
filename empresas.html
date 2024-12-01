@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresas Colaboradoras de Reciclaje en Piura</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Estilos llamativos para las empresas colaboradoras -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #56ccf2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .company-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .company-card {
+            background-color: #e0f7fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .company-card:hover {
+            transform: scale(1.05);
+        }
+        .company-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .company-card h3 {
+            color: #8ae7dc;
+            margin-top: 10px;
+            font-size: 1.6em;
+        }
+        .company-card p {
+            color: #555;
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #b2eee7;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Empresas Colaboradoras de Reciclaje en Piura</h1>
+        <p>Conoce las empresas en Piura que están ayudando a mejorar el medio ambiente a través del reciclaje.</p>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Empresas Comprometidas con el Reciclaje</h2>
+            <div class="company-list">
+                <!-- Empresa 1 -->
+                <a href="https://linktr.ee/Eco.Piura_" class="company-card" target="_blank">
+                    <img src="https://via.placeholder.com/100" alt="EcoPiura">
+                    <h3>EcoPiura</h3>
+                    <p>Empresa dedicada a la recolección y reciclaje de plásticos en Piura.</p>
+                </a>
+                <!-- Empresa 2 -->
+                <a href="https://group-ism.com/se-promueve-el-reciclaje-en-piura/" class="company-card" target="_blank">
+                    <img src="https://via.placeholder.com/100" alt="INDUSTRIAS SAN MIGUEL">
+                    <h3>INDUSTRIAS SAN MIGUEL</h3>
+                    <p>Reciclaje de metales, cartón y papel en la región de Piura.</p>
+                </a>
+                <!-- Empresa 3 -->
+                <a href="https://www.instagram.com/piura.verde/?hl=es" class="company-card" target="_blank">
+                    <img src="https://via.placeholder.com/100" alt="Piura Verde">
+                    <h3>Piura Verde</h3>
+                    <p>Reciclaje de residuos orgánicos y electrónicos en Piura.</p>
+                </a>
+                <!-- Empresa 4 -->
+                <a href="https://siar.regionpiura.gob.pe/sialpiura/noticias/290" class="company-card" target="_blank">
+                    <img src="https://via.placeholder.com/100" alt="SAIR">
+                    <h3>SAIR</h3>
+                    <p>Ofrecen servicios de reciclaje de plástico y vidrio en Piura.</p>
+                </a>
+                <!-- Agregar más empresas según sea necesario -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 GreenCycle.</p>
+    </footer>
+</body>
+</html>
+

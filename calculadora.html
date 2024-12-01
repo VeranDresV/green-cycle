@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Huella de Carbono e Hídrica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .calculadora {
+            display: none; /* Inicialmente oculto */
+        }
+
+        .Usar-Calculadora {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Calculadoras de Huella de Carbono e Hídrica</h1>
+        <p>Calcula tu impacto ambiental y descubre cómo reducirlo.</p>
+    </header>
+
+    <div class="Usar-Calculadoras">
+        <!-- Botón para mostrar u ocultar la calculadora de huella de carbono -->
+        <button onclick="toggleCalculadora('carbono')">Ver Calculadora de Huella de Carbono</button>
+
+        <!-- Botón para mostrar u ocultar la calculadora de huella hídrica -->
+        <button onclick="toggleCalculadora('hidrica')">Ver Calculadora de Huella Hídrica</button>
+    </div>
+
+    <section id="carbono" class="calculadora">
+        <h2>Calculadora de Huella de Carbono</h2>
+        <form id="carbono-form">
+            <label for="energia">Consumo mensual de electricidad (kWh):</label>
+            <input type="number" id="energia" name="energia" required>
+
+            <label for="transporte">Kilómetros recorridos mensualmente en coche:</label>
+            <input type="number" id="transporte" name="transporte" required>
+
+            <label for="residuos">Peso de residuos generados (kg):</label>
+            <input type="number" id="residuos" name="residuos" required>
+
+            <button type="submit">Calcular Huella de Carbono</button>
+        </form>
+        <p id="resultado-carbono"></p>
+    </section>
+
+    <section id="hidrica" class="calculadora">
+        <h2>Calculadora de Huella Hídrica</h2>
+        <form id="hidrica-form">
+            <label for="agua-alimentos">Consumo de agua por alimentos (L/día):</label>
+            <input type="number" id="agua-alimentos" name="agua-alimentos" required>
+
+            <label for="agua-ropa">Consumo de agua por ropa (L/día):</label>
+            <input type="number" id="agua-ropa" name="agua-ropa" required>
+
+            <label for="agua-higiene">Consumo de agua por higiene personal (L/día):</label>
+            <input type="number" id="agua-higiene" name="agua-higiene" required>
+
+            <button type="submit">Calcular Huella Hídrica</button>
+        </form>
+        <p id="resultado-hidrica"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Calculadoras Ambientales</p>
+    </footer>
+
+    <script>
+        // Función para calcular la huella de carbono
+        function calcularHuellaCarbono(event) {
+            event.preventDefault();
+
+            let energia = parseFloat(document.getElementById('energia').value);
+            let transporte = parseFloat(document.getElementById('transporte').value);
+            let residuos = parseFloat(document.getElementById('residuos').value);
+
+            // Emisiones de CO2 estimadas
+            const emisionEnergia = energia * 0.4; // kg CO2 por kWh
+            const emisionTransporte = transporte * 0.21; // kg CO2 por km
+            const emisionResiduos = residuos * 1.6; // kg CO2 por kg de residuos
+
+            let huellaCarbono = emisionEnergia + emisionTransporte + emisionResiduos;
+
+            document.getElementById('resultado-carbono').textContent = `Tu huella de carbono mensual es de ${huellaCarbono.toFixed(2)} kg CO2.`;
+        }
+
+        // Función para calcular la huella hídrica
+        function calcularHuellaHidrica(event) {
+            event.preventDefault();
+
+            let aguaAlimentos = parseFloat(document.getElementById('agua-alimentos').value);
+            let aguaRopa = parseFloat(document.getElementById('agua-ropa').value);
+            let aguaHigiene = parseFloat(document.getElementById('agua-higiene').value);
+
+            // Consumo hídrico estimado
+            const consumoAlimentos = aguaAlimentos * 30; // litros de agua al mes
+            const consumoRopa = aguaRopa * 30; // litros de agua al mes
+            const consumoHigiene = aguaHigiene * 30; // litros de agua al mes
+
+            let huellaHidrica = consumoAlimentos + consumoRopa + consumoHigiene;
+
+            document.getElementById('resultado-hidrica').textContent = `Tu huella hídrica mensual es de ${huellaHidrica.toFixed(2)} litros de agua.`;
+        }
+
+        // Evento para el formulario de la huella de carbono
+        document.getElementById('carbono-form').addEventListener('submit', calcularHuellaCarbono);
+
+        // Evento para el formulario de la huella hídrica
+        document.getElementById('hidrica-form').addEventListener('submit', calcularHuellaHidrica);
+
+        // Función para mostrar u ocultar las calculadoras
+        function toggleCalculadora(calculadora) {
+            const calculadoraElement = document.getElementById(calculadora);
+            const isVisible = calculadoraElement.style.display === 'block';
+
+            // Ocultar todas las calculadoras
+            document.querySelectorAll('.calculadora').forEach((section) => {
+                section.style.display = 'none';
+            });
+
+            // Mostrar la calculadora seleccionada si no está visible
+            if (!isVisible) {
+                calculadoraElement.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>

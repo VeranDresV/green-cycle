@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos sobre el Reciclaje</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1s;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        button {
+            padding: 15px 30px;
+            background-color: #ff4757;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: #ff6b81;
+            transform: scale(1.05);
+        }
+
+        .resources {
+            margin-top: 30px;
+            display: none; /* Ocultar inicialmente */
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.5s;
+        }
+
+        .resource-item {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .resource-item a {
+            color: #ffd700; /* Color dorado */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .resource-item a:hover {
+            color: #ffeb3b; /* Color amarillo claro */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Recursos sobre el Reciclaje</h1>
+    <button id="showResourcesButton">Mostrar Recursos</button>
+    
+    <div class="resources" id="resourcesContainer">
+        <h2>Lista de Recursos</h2>
+        <div class="resource-item">1. <a href="https://www.epa.gov/recycle" target="_blank">EPA - Reciclaje</a></div>
+        <div class="resource-item">2. <a href="https://www.nrdc.org/stories/recycling-101" target="_blank">NRDC - Reciclaje 101</a></div>
+        <div class="resource-item">3. <a href="https://www.recycleacrossamerica.org/" target="_blank">Recycle Across America</a></div>
+        <div class="resource-item">4. <a href="https://www.worldwildlife.org/pages/recycling" target="_blank">WWF - Reciclaje</a></div>
+        <div class="resource-item">5. <a href="https://www.keepamericabeautiful.org/" target="_blank">Keep America Beautiful</a></div>
+    </div>
+
+    <script>
+        document.getElementById("showResourcesButton").onclick = function() {
+            var resourcesContainer = document.getElementById("resourcesContainer");
+            if (resourcesContainer.style.display === "none" || resourcesContainer.style.display === "") {
+                resourcesContainer.style.display = "block"; // Mostrar recursos
+                this.textContent = "Ocultar Recursos"; // Cambiar texto del botón
+                resourcesContainer.style.opacity = 0; // Comenzar desde transparente
+                setTimeout(() => { resourcesContainer.style.opacity = 1; }, 0); // Hacer visible
+            } else {
+                resourcesContainer.style.opacity = 0; // Hacer transparente
+                setTimeout(() => { resourcesContainer.style.display = "none"; }, 500); // Ocultar después de la animación
+                this.textContent = "Mostrar Recursos"; // Cambiar texto del botón
+            }
+        };
+    </script>
+</body>
+</html>
